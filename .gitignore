@@ -6,5 +6,3 @@ dist/
 # Ignore Nix's `result` symlinks
 result
 result-*
-
-
