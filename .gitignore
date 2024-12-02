@@ -1,0 +1,10 @@
+target/
+dist/
+.DS_Store
+
+.direnv/
+# Ignore Nix's `result` symlinks
+result
+result-*
+
+
