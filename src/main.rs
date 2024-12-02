@@ -16,6 +16,7 @@ fn get_solution(problem: String) {
     problems.insert("11", day1::problem1);
     problems.insert("12", day1::problem2);
     problems.insert("21", day2::problem1);
+    problems.insert("22", day2::problem2);
 
     // Parse the day number from the problem string
     let day = problem

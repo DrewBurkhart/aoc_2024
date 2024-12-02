@@ -53,3 +53,44 @@ pub fn problem1(file_path: &str) -> Result<()> {
 
     Ok(())
 }
+
+pub fn problem2(file_path: &str) -> Result<()> {
+    let mut total_safe = 0;
+
+    let mut lines = read_lines(file_path)?;
+
+    while !lines.is_empty() {
+        let values = lines.remove(0);
+
+        // Check if the line is valid as is
+        if is_valid_line(&values) {
+            println!("Valid line: {:?}", values);
+            total_safe += 1;
+        } else {
+            // Check if removing one item makes it valid
+            let mut is_valid_with_removal = false;
+
+            for i in 0..values.len() {
+                let mut temp_line = values.clone();
+                temp_line.remove(i);
+                if is_valid_line(&temp_line) {
+                    println!(
+                        "Line {:?} becomes valid after removing {}: {:?}",
+                        values, values[i], temp_line
+                    );
+                    is_valid_with_removal = true;
+                    total_safe += 1;
+                    break;
+                }
+            }
+
+            if !is_valid_with_removal {
+                println!("Invalid line: {:?}", values);
+            }
+        }
+    }
+
+    println!("Total Distance: {}", total_safe);
+
+    Ok(())
+}
