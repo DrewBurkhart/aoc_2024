@@ -1,6 +1,7 @@
 use std::{collections::HashMap, env, io::Error, time::Instant};
 
 mod day1;
+mod day2;
 
 fn main() {
     let problem = env::args()
@@ -14,6 +15,7 @@ fn get_solution(problem: String) {
     let mut problems: HashMap<&str, fn(&str) -> Result<(), Error>> = HashMap::new();
     problems.insert("11", day1::problem1);
     problems.insert("12", day1::problem2);
+    problems.insert("21", day2::problem1);
 
     // Parse the day number from the problem string
     let day = problem
