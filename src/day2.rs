@@ -90,7 +90,7 @@ pub fn problem2(file_path: &str) -> Result<()> {
         }
     }
 
-    println!("Total Distance: {}", total_safe);
+    println!("Total Safe: {}", total_safe);
 
     Ok(())
 }
