@@ -11,15 +11,24 @@ fn main() {
 
 fn get_solution(problem: String) {
     // Define a lookup table for problem functions
-    let mut problems: HashMap<&str, fn() -> Result<(), Error>> = HashMap::new();
+    let mut problems: HashMap<&str, fn(&str) -> Result<(), Error>> = HashMap::new();
     problems.insert("11", day1::problem1);
     problems.insert("12", day1::problem2);
+
+    // Parse the day number from the problem string
+    let day = problem
+        .chars()
+        .next()
+        .expect("Problem identifier cannot be empty")
+        .to_string();
+
+    let input_path = format!("inputs/day{}.txt", day);
 
     let time = Instant::now();
 
     if let Some(problem_fn) = problems.get(problem.as_str()) {
-        // Call the corresponding function and handle errors
-        if let Err(e) = problem_fn() {
+        // Pass the input file path to the problem function
+        if let Err(e) = problem_fn(&input_path) {
             panic!("Problem {} failed: {}. Be better.", problem, e);
         }
     } else {

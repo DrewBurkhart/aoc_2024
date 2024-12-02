@@ -45,10 +45,9 @@ fn get_next_similarity_score(col1: &mut Vec<i32>, col2: &mut Vec<i32>) -> Option
     Some(next * occurences)
 }
 
-pub fn problem1() -> Result<()> {
+pub fn problem1(file_path: &str) -> Result<()> {
     let mut total_distance = 0;
 
-    let file_path = "inputs/day1.txt";
     let (mut col1, mut col2) = read_and_sort(file_path)?;
 
     while !col1.is_empty() && !col2.is_empty() {
@@ -62,10 +61,9 @@ pub fn problem1() -> Result<()> {
     Ok(())
 }
 
-pub fn problem2() -> Result<()> {
+pub fn problem2(file_path: &str) -> Result<()> {
     let mut similarity_score = 0;
 
-    let file_path = "inputs/day1.txt";
     let (mut col1, mut col2) = read_and_sort(file_path)?;
 
     while !col1.is_empty() && !col2.is_empty() {
