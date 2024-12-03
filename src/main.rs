@@ -2,6 +2,7 @@ use std::{collections::HashMap, env, io::Error, time::Instant};
 
 mod day1;
 mod day2;
+mod day3;
 
 fn main() {
     let problem = env::args()
@@ -17,6 +18,7 @@ fn get_solution(problem: String) {
     problems.insert("12", day1::problem2);
     problems.insert("21", day2::problem1);
     problems.insert("22", day2::problem2);
+    problems.insert("31", day3::problem1);
 
     // Parse the day number from the problem string
     let day = problem
